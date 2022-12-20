@@ -136,6 +136,14 @@ instance FixedNumeric Int64 where
     nativeToLittleEndian = unsafeStorableCoerce . nativeToLittleEndian @Word64 . unsafeStorableCoerce
     nativeToBigEndian = unsafeStorableCoerce . nativeToBigEndian @Word64 . unsafeStorableCoerce
 
+instance FixedNumeric Float where
+    nativeToLittleEndian = unsafeStorableCoerce . nativeToLittleEndian @Word32 . unsafeStorableCoerce
+    nativeToBigEndian = unsafeStorableCoerce . nativeToBigEndian @Word32 . unsafeStorableCoerce
+
+instance FixedNumeric Double where
+    nativeToLittleEndian = unsafeStorableCoerce . nativeToLittleEndian @Word64 . unsafeStorableCoerce
+    nativeToBigEndian = unsafeStorableCoerce . nativeToBigEndian @Word64 . unsafeStorableCoerce
+
 decodeLittleEndian ::
        forall a. FixedNumeric a
     => BSRead a

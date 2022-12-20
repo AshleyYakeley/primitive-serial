@@ -1,0 +1,27 @@
+name: primitve-serial
+version: "0.1"
+author: Ashley Yakeley
+copyright: (c) 2022 Ashley Yakeley
+license: BSD-2-Clause
+license-file: LICENSE
+maintainer: <ashley@semantic.org>
+homepage: https://github.com/AshleyYakeley/primitve-serial
+bug-reports: https://github.com/AshleyYakeley/witprimitve-serialness/issues
+synopsis: Serialisation of primitive types
+description:
+    A /witness/ is a value that witnesses some sort of constraint on some list of type variables.
+    This library provides support for a wide variety of witness types.
+    It also provides classes for /representatives/, which are values that represent types.
+category: Data
+build-type: Simple
+
+extra-source-files:
+  - changelog.md
+
+library:
+    source-dirs: src
+    language: GHC2021
+    dependencies:
+      - base >= 4.16 && < 5
+    exposed-modules:
+      - Data.PrimitiveSerial

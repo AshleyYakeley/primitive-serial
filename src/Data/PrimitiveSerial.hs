@@ -3,6 +3,8 @@ module Data.PrimitiveSerial
     , runWholeBSRead
     , bsRead
     , bsReadN
+    , bsReadEverything
+    , bsReadCount
     , decodeNative
     , encodeNative
     , FixedNumeric(..)
@@ -69,6 +71,12 @@ bsReadN n =
         if n > length bs
             then Nothing
             else return (drop n bs, take n bs)
+
+bsReadEverything :: BSRead StrictByteString
+bsReadEverything = MkBSRead $ \bs -> Just (mempty,bs)
+
+bsReadCount :: BSRead Int
+bsReadCount = MkBSRead $ \bs -> Just (bs,length bs)
 
 decodeNative ::
        forall a. Storable a

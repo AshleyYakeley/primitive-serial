@@ -8,10 +8,7 @@ maintainer: <ashley@semantic.org>
 homepage: https://github.com/AshleyYakeley/primitve-serial
 bug-reports: https://github.com/AshleyYakeley/witprimitve-serialness/issues
 synopsis: Serialisation of primitive types
-description:
-    A /witness/ is a value that witnesses some sort of constraint on some list of type variables.
-    This library provides support for a wide variety of witness types.
-    It also provides classes for /representatives/, which are values that represent types.
+description: Representation of basic numeric types as ByteStrings
 category: Serialization
 build-type: Simple
 
@@ -22,9 +19,17 @@ library:
     source-dirs: src
     language: GHC2021
     default-extensions:
-    - RecordWildCards
+      - RecordWildCards
+    ghc-options:
+      - -Wall
+      - -Wincomplete-uni-patterns
+      - -Wincomplete-record-updates
+      - -Wcompat
+      - -Wnoncanonical-monad-instances
+      - -Wno-partial-type-signatures
     dependencies:
       - base >= 4.16 && < 5
+      - cpu
       - bytestring
     exposed-modules:
       - Data.PrimitiveSerial

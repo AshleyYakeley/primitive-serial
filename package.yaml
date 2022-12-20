@@ -12,7 +12,7 @@ description:
     A /witness/ is a value that witnesses some sort of constraint on some list of type variables.
     This library provides support for a wide variety of witness types.
     It also provides classes for /representatives/, which are values that represent types.
-category: Data
+category: Serialization
 build-type: Simple
 
 extra-source-files:
@@ -21,7 +21,10 @@ extra-source-files:
 library:
     source-dirs: src
     language: GHC2021
+    default-extensions:
+    - RecordWildCards
     dependencies:
       - base >= 4.16 && < 5
+      - bytestring
     exposed-modules:
       - Data.PrimitiveSerial

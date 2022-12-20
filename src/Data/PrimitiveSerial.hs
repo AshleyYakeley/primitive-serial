@@ -73,10 +73,10 @@ bsReadN n =
             else return (drop n bs, take n bs)
 
 bsReadEverything :: BSRead StrictByteString
-bsReadEverything = MkBSRead $ \bs -> Just (mempty,bs)
+bsReadEverything = MkBSRead $ \bs -> Just (mempty, bs)
 
 bsReadCount :: BSRead Int
-bsReadCount = MkBSRead $ \bs -> Just (bs,length bs)
+bsReadCount = MkBSRead $ \bs -> Just (bs, length bs)
 
 decodeNative ::
        forall a. Storable a

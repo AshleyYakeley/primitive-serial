@@ -100,10 +100,6 @@ class Storable a => FixedNumeric a where
     nativeToLittleEndian :: a -> a
     nativeToBigEndian :: a -> a
 
-instance FixedNumeric Bool where
-    nativeToLittleEndian = id
-    nativeToBigEndian = id
-
 instance FixedNumeric Word8 where
     nativeToLittleEndian = id
     nativeToBigEndian = id
